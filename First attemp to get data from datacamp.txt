@@ -1,0 +1,19 @@
+import os
+from time import sleep
+from subprocess import Popen, PIPE
+
+def command(text, close=True):
+    process = Popen(text, stdout=PIPE,
+                    shell=True)
+    # sleep(1)
+    output = process.communicate()
+    if close:
+        process.terminate()
+    print(output)
+    return process, output
+
+process, output = command('git init .')
+process, output = command('git add .')
+process, output = command('git commit -m "datasets"')
+process, output = command('git remote add origin https://github.com/ggjuancamilo/DataCamp.git')
+process, output = command('git push -u origin master', close=False)
