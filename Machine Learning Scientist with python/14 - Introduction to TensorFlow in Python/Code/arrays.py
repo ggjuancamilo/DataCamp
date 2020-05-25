@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 color_tensor = pd.read_csv('data/color_tensor.txt', header=None).to_numpy().reshape(28,28,3)
 
 gray_tensor = np.array([[187, 189, 190, 192, 195, 198, 198, 198, 200, 200, 201, 205, 206,
